@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+    <link rel="icon" href="../images/icon.png" />
+    <title>Vey Vey</title>
+    <link rel="stylesheet" href="../style/photos.css" />
+  </head>
+  <body>
+    <div id="sure">
+      <div>
+        <img src="../images/close.png" alt="" onclick="closeSure()" />
+        <p>Are you sure you continue without saving changes ?</p>
+        <div onclick="closeSure()">
+          <span>No</span>
+        </div>
+        <div onclick="closeSure(), closeModal()">
+          <span>Yes</span>
+        </div>
+      </div>
+    </div>
+    <div id="menu">
+      <div class="menu w-89">
+        <a href="#" class="logo">
+          <img src="../images/logd.png" alt="" />
+          <img src="../images/Group.png" alt="" />
+        </a>
+        <div class="menu-links">
+          <a href="">Home</a>
+          <a href="">Performance</a>
+          <a href="">Reservations</a>
+          <a href="">Reviews</a>
+          <a href="">Earnings</a>
+          <a href="">Settings</a>
+          <a href="">Messages <span></span></a>
+        </div>
+        <div class="right-side-menu">
+          <a href="">Switch to traveling</a>
+          <div class="currency">
+            <img src="../images/united-states.png" alt="" />
+            <img src="../images/dollar.png" alt="" />
+            <img src="../images/arrow-down.png" alt="" />
+          </div>
+          <div class="user">
+            <img src="../images/user.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="left-side">
+      <a href="">
+        <img src="../images/r.png" alt="" />
+        Go to Dashboard
+      </a>
+      <div>
+        <img src="../images/Rectangle 942.png" alt="" />
+        <a href="#">
+          <img src="../images/view.png" alt="" />
+          View listing
+        </a>
+      </div>
+      <h3>"Sairme Hill" Cozy apartment view beatiful....</h3>
+      <p>ID 235213215</p>
+      <a href="">Calendar</a>
+      <a href="">Listing info</a>
+      <a href="">Pricing</a>
+      <a href="">Photos</a>
+      <a href="">Policies</a>
+    </div>
+    <div class="right-side">
+      <div class="tips">
+        <h1>
+          <img src="../images/line.png" alt="" />
+          Page score tips
+        </h1>
+        <h4>Follow these simple tips to improve your performance:</h4>
+        <p>
+          <span>Add amenities •</span>
+          for your listings, including advance notice and trip duration
+          settings.
+        </p>
+        <p>
+          <span>Add facilities •</span>
+          for your listings, including advance notice and trip duration
+          settings.
+        </p>
+        <p>
+          <span>Add tags on photos •</span>
+          for your listings, including advance notice and trip duration
+          settings.
+        </p>
+      </div>
+      <div class="activities">
+        <h1>Activities</h1>
+        <div>
+          <img src="../images/Ellipse 176.png" alt="" />
+          <span>
+            <h3>Room with balcony needs cleaning</h3>
+            <h5>Lorem ipsum dolor sit ament.</h5>
+            <p>April 22, 2022 • 20:20 PM</p>
+          </span>
+        </div>
+        <div>
+          <img src="../images/Ellipse 176.png" alt="" />
+          <span>
+            <h3>Room with balcony needs cleaning</h3>
+            <h5>Lorem ipsum dolor sit ament.</h5>
+            <p>April 22, 2022 • 20:20 PM</p>
+          </span>
+        </div>
+        <div>
+          <img src="../images/Ellipse 176.png" alt="" />
+          <span>
+            <h3>Room with balcony needs cleaning</h3>
+            <h5>Lorem ipsum dolor sit ament.</h5>
+            <p>April 22, 2022 • 20:20 PM</p>
+          </span>
+        </div>
+        <div>
+          <img src="../images/Ellipse 176.png" alt="" />
+          <span>
+            <h3>Room with balcony needs cleaning</h3>
+            <h5>Lorem ipsum dolor sit ament.</h5>
+            <p>April 22, 2022 • 20:20 PM</p>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="middle-side">
+      <div class="main" id="main">
+        <h1>Hotel photos</h1>
+        <p>Drag and drop your photos to change the order</p>
+
+        <div class="draggable Add Tag">
+          <!-- <div class="box cover">
+            <div class="img">
+              <img src="../images/pool.png" alt="" draggable="false" />
+              <div class="set-cover" onclick="makeCoverPhoto(event)">
+                <img src="../images/cov.png" alt="" draggable="false" />
+                Set as cover
+              </div>
+              <div class="delete" onclick="delleteBox(event)">
+                <img src="../images/close.png" alt="" draggable="false" />
+              </div>
+              <div class="edit" onclick="openModal(event)">
+                <img src="../images/edit.png" alt="" draggable="false" />
+                Edit
+              </div>
+            </div>
+            <div class="set-tag">
+              <div class="position"></div>
+              <div class="add-tag" onclick="addTag(event)">
+               <img src="../images/plus.png" alt="" draggable="false" />
+                Add Tag
+              </div>
+            </div>
+          </div> -->
+          <input
+            type="file"
+            id="main-add"
+            name="main-add"
+            accept="image/*"
+            style="display: none"
+            onchange="addPhoto(event)"
+            multiple
+          />
+
+          <div
+            class="add-photo"
+            onclick="accsesToInput(event)"
+            draggable="false"
+          >
+            <img src="../images/add.png" alt="" draggable="false" />
+            <p draggable="false">Add Photo</p>
+            <div class="add-photo-override"></div>
+          </div>
+        </div>
+      </div>
+      <div id="second"></div>
+      <img src="" id="second1" alt="">
+    </div>
+    <div id="modal">
+      <div class="head">
+        <h1>Edit photos</h1>
+        <div onclick="closeModal()" id="close">
+          <img src="../images/close.png" alt="" />
+        </div>
+      </div>
+      <div class="set">
+        <div id="editable">
+          <div id="img-container">
+            <img src="../images/Fill.png" alt="" />
+          </div>
+          <div class="reup">
+            <img src="../images/reup.png" alt="" />
+            Reupload
+          </div>
+          <div class="del">
+            <img src="../images/delete.png" alt="" />
+          </div>
+          <div class="left">
+            <img src="../images/right-arr.png" alt="" />
+          </div>
+          <div class="right">
+            <img src="../images/right-arrow.png" alt="" />
+          </div>
+          <div class="listing-cover">
+            <img src="../images/cov.png" alt="" />
+            Listing cover
+          </div>
+          <div class="room-cover">
+            <img src="../images/cov.png" alt="" />
+            Room Cover
+          </div>
+        </div>
+        <div class="settings">
+          <h3>Gallery editing</h3>
+          <h4>Suggested</h4>
+          <div class="settings-container" id="sug">
+            <div class="n-1">
+              <img src="../images/inp.png" alt="" />
+              <input
+                type="text"
+                id="suggested"
+                placeholder="Add Suggestion"
+                onfocus="document.getElementById('sug').style.height='233px'"
+                onfocusout="document.getElementById('sug').style.height='70px'"
+              />
+            </div>
+            <p>Amenities</p>
+            <div class="n-2">
+              <img src="../images/swim.png" alt="" />
+              <h2>Swimming pool</h2>
+              <span></span>
+              <p>Room amenity</p>
+            </div>
+            <div class="n-3">
+              <img src="../images/acc.png" alt="" />
+              <h2>Accessibility</h2>
+              <span></span>
+              <p>Hotel facility</p>
+            </div>
+          </div>
+          <h3>Contrast</h3>
+          <p id="contrastN">10</p>
+          <input
+            type="range"
+            id="contrast"
+            name="Contrast"
+            min="0"
+            max="10"
+            value="5"
+            onchange="contrastF()"
+          />
+          <h3>Brightness</h3>
+          <p id="brightnessN">5</p>
+          <input
+            type="range"
+            id="brightness"
+            name="Brightness"
+            min="0"
+            max="10"
+            value="5"
+            onchange="brightnessF()"
+          />
+          <h3>Zoom</h3>
+          <div id="zoomN">0</div>
+          <input
+            type="range"
+            id="zoom"
+            name="Zoom"
+            min="0"
+            max="10"
+            value="5"
+            onchange="zoomF()"
+          />
+          <div class="rotate" onclick="rotateF()">
+            <img src="../images/rotating-arrow-to-the-right.png" alt="" />
+            Rotate clockwise
+          </div>
+          <div id="cancel">Cancel</div>
+          <div id="save" onclick="closeModal(), save()">Save</div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/photos.js"></script>
+  </body>
+</html>

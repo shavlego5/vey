@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icon.png" />
+    <title>Vey Vey</title>
+    <link rel="stylesheet" href="style/pickmeup.css" type="text/css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div id="dark"></div>
+    <div class="stiky">
+      <img src="images/searchP.png" alt="" onclick="mobileSearch()">
+      <a href="#">
+        <img src="images/heart.png" alt="">
+      </a>
+      <a href="#">
+        <div></div>
+        <img src="images/mess.png" alt="">
+      </a>
+      <a href="#">
+         <img src="images/pers.png" alt="">
+      </a>
+    </div>
+    <div id="looking-for">
+      <div class="mobile-button"></div>
+      <h1>What are we looking for?</h1>
+      <p>Add a listing, choose category that best suits your needs.</p>
+      <div class="category">
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Hotel</h3>
+          <img src="images/ho.png" alt="" />
+        </div>
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Apartment</h3>
+          <img src="images/ap.png" alt="" />
+        </div>
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Experiences</h3>
+          <img src="images/ex.png" alt="" />
+        </div>
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Cars</h3>
+          <img src="images/ca.png" alt="" />
+        </div>
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Restaurants</h3>
+          <img src="images/re.png" alt="" />
+        </div>
+        <div onclick="closeCategory() , showCalendar()">
+          <h3>Trails</h3>
+          <img src="images/tr.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div id="recent">
+      <div class="mobile-button"></div>
+      <div id="recent-search">
+        <p>Find location</p>
+        <input type="text" value="" id="cover" />
+        <input
+          type="text"
+          placeholder="Search location"
+          id="location-input"
+          onkeyup="filter()"
+          onkeydown="keyEnter(event)"
+        />
+        <button type="button" id="pin0" onclick="closeRecent()">
+          <img src="images/close.png" alt="" />
+          <p>Clear</p>
+        </button>
+      </div>
+      <div class="location-list">
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Marseille</h4>
+          <span></span>
+          <p>City in France</p>
+        </div>
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Marshallville</h4>
+          <span></span>
+          <p>City in Atlanta, Georgia</p>
+        </div>
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Makastan</h4>
+          <span></span>
+          <p>Place in Tbilisi</p>
+        </div>
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Marseille</h4>
+          <span></span>
+          <p>City in France</p>
+        </div>
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Makassar</h4>
+          <span></span>
+          <p>Town on Indonesia’s island</p>
+        </div>
+        <div onclick="locationI(event)">
+          <img src="images/geo.png" alt="" />
+          <h4>Marseille</h4>
+          <span></span>
+          <p>City in France</p>
+        </div>
+      </div>
+    </div>
+    <div id="calendar" onmouseleave="hideCalendar()">
+      <div class="mobile-button"></div>
+      <div id="mobile-result"></div>
+      <section>
+        <article>
+          <div class="three-calendars"></div>
+        </article>
+      </section>
+      <div id="extra">
+        <div id="extra-dates">
+          <div></div>
+          <h2>Extra dates</h2>
+          <div class="plus-minus">
+            <p>
+              <span>+</span>
+              <span>_</span>
+            </p>
+            <p>1 day</p>
+          </div>
+          <div class="plus-minus">
+            <p>
+              <span>+</span>
+              <span>_</span>
+            </p>
+            <p>2 day</p>
+          </div>
+          <div class="plus-minus">
+            <p>
+              <span>+</span>
+              <span>_</span>
+            </p>
+            <p>3 day</p>
+          </div>
+        </div>
+        <div id="nights">
+          <p>Selected:</p>
+          <p id="nights-count"></p>
+          <h3 onclick="clearData()">Clear dates</h3>
+        </div>
+      </div>
+      <div id="next">
+        <h3 onclick="clearData()">Clear dates</h3>
+        <button type="button" onclick="nextSearch()">Next</button>
+      </div>
+    </div>
+    <div id="guest" onmouseleave="hideGuest()">
+      <div class="mobile-button"></div>
+      <div id="mobile-result"></div>
+      <div id="persons">
+        <h5>Room 1</h5>
+        <div class="adults">
+          <div>
+            <h2>Adults</h2>
+            <p>17 and above</p>
+          </div>
+          <div class="counter">
+            <button type="button" disabled>-</button>
+            <span>0</span>
+            <button type="button">+</button>
+          </div>
+        </div>
+        <div class="children">
+          <div>
+            <h2>Children</h2>
+            <p>Ages 2–17</p>
+          </div>
+          <div class="counter">
+            <button type="button" disabled>-</button>
+            <span>0</span>
+            <button type="button">+</button>
+          </div>
+        </div>
+        <div class="infants">
+          <div>
+            <h2>Infants</h2>
+            <p>Under 2</p>
+          </div>
+          <div class="counter">
+            <button type="button" disabled>-</button>
+            <span>0</span>
+            <button type="button">+</button>
+          </div>
+        </div>
+      </div>
+      <div id="add-room" onclick="addRoom()">
+        <img src="images/add0.png" alt="" />
+        <p>Add room</p>
+      </div>
+      <div id="next">
+        <h3 onclick="clearData()">Clear dates</h3>
+        <button type="button" onclick="search()">
+          <img src="images/loupe.png" alt="" />
+          Search
+        </button>
+      </div>
+    </div>
+    <div id="menu">
+      <a href="">menu item</a>
+      <a href="">menu item</a>
+      <a href="">menu item</a>
+      <a href="">menu item</a>
+      <a href="">menu item</a>
+    </div>
+    <div class="header">
+      <div class="blur">
+        <div class="top wrapper">
+          <a href="" class="logo">
+            <img src="images/logo.png" alt="" />
+            <img src="images/name.png" alt="" />
+          </a>
+          <div class="currency-join">
+            <div class="currency">
+              <div id="default-currency" class="currency-name">
+                <img src="images/united-states.png" alt="" />
+                <img src="images/dollar.png" alt="" />
+                <img src="images/arrow-down.png" alt="" />
+              </div>
+              <div class="currency-name" onclick="choosCurrency(event)">
+                <img src="images/european-union.png" alt="" />
+                <img src="images/euro.png" alt="" />
+              </div>
+              <div class="currency-name" onclick="choosCurrency(event)">
+                <img src="images/georgia.png" alt="" />
+                <img src="images/lari.png" alt="" />
+              </div>
+            </div>
+            <div class="listing" onmousemove="checkMouseCoords(event)">
+              <img src="images/pencil.png" alt="" />
+              <p>Make a listing</p>
+            </div>
+            <div class="join">
+              <img src="images/user.png" alt="" />
+              <p>Join</p>
+            </div>
+          </div>
+          <div id="menu-button" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <h1 class="wrapper">A better way to stay</h1>
+        <p class="wrapper">Find deals on hotels, homes and more...</p>
+        <div class="deals-name-container wrapper">
+          <div class="deals">
+            <div class="active">
+              <img src="images/hotel-0.png" alt="" />
+              <p>Hotels</p>
+            </div>
+            <div>
+              <img src="images/apart.png" alt="" />
+              <p>Appartments</p>
+            </div>
+            <div>
+              <img src="images/car.png" alt="" />
+              <p>Experiences</p>
+            </div>
+            <div>
+              <img src="images/car.png" alt="" />
+              <p>Cars</p>
+            </div>
+            <div>
+              <img src="images/rest.png" alt="" />
+              <p>Restaurants</p>
+            </div>
+            <div>
+              <img src="images/trails.png" alt="" />
+              <p>Trails</p>
+            </div>
+            <div>
+              <img src="images/events.png" alt="" />
+              <p>Events</p>
+            </div>
+            <div>
+              <img src="images/rail.png" alt="" />
+              <p>Railways</p>
+            </div>
+          </div>
+        </div>
+        <div class="find-location wrapper">
+          <div id="location">
+            <!-- onmouseenter="focus0()" onmouseout="unfocus()" -->
+            <p>Find location</p>
+            <h2 id="location-name" onclick="openRecent()">Where to stay</h2>
+            <button type="submit" id="pin">
+              <img src="images/pin.png" alt="" />
+            </button>
+          </div>
+          <div id="date">
+            <div>
+              <p>From</p>
+              <h2 id="from" onclick="showCalendar()">Add date</h2>
+            </div>
+            <img src="images/right.png" alt="" />
+            <div>
+              <p>Until</p>
+              <h2 id="until" onclick="showCalendar()">Add date</h2>
+            </div>
+          </div>
+          <div id="guests">
+            <p>Guests</p>
+            <h2 onclick="showGuest()">Add guests</h2>
+          </div>
+          <div id="browse">
+            <div></div>
+            <h1>Browse <span id="listings-count">521</span> Listings</h1>
+          </div>
+        </div>
+        <div class="mobile-search" onclick="mobileSearch()">
+          <img src="images/loupe.png" alt="" />
+          <p>Search for Stays, Experiences & more</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="pink-header">WHAT WE OFFER</h3>
+    <h1 class="header-1">Book your dream stay now and pay over time</h1>
+    <div class="room-images wrapper" id="room-images">
+      <a href="#">
+        <div class="scalable">
+          <img src="images/Rectangle 719.png" alt="" />
+        </div>
+        <div>
+          <div>
+            <h1>Lookin for perfect Room?</h1>
+            <p>Book top rated hotels Georgia</p>
+          </div>
+          <img src="images/next.png" alt="" />
+        </div>
+      </a>
+      <a href="#">
+        <div class="scalable">
+          <img src="images/Rectangle 716.png" alt="" />
+        </div>
+        <div>
+          <div>
+            <h1>Need an entire Place?</h1>
+            <p>Book unique stays easily</p>
+          </div>
+          <img src="images/next.png" alt="" />
+        </div>
+      </a>
+      <a href="#">
+        <div class="scalable">
+          <img src="images/Rectangle 718.png" alt="" />
+        </div>
+        <div>
+          <div>
+            <h1>Lookin for pleasure?</h1>
+            <p>Check out our sort of experiences</p>
+          </div>
+          <img src="images/next.png" alt="" />
+        </div>
+      </a>
+      <a href="#">
+        <div class="scalable">
+          <img src="images/Rectangle 719.png" alt="" />
+        </div>
+        <div>
+          <div>
+            <h1>Hit the road confidently</h1>
+            <p>Explore cars to travel fast</p>
+          </div>
+          <img src="images/next.png" alt="" />
+        </div>
+      </a>
+    </div>
+    <div class="awards-container">
+      <h3 class="pink-header">WHY VEYVEY</h3>
+      <p class="header-2">
+        <span>World Travel Award </span> 1st place in the Leading Online Travel Agency
+      </p>
+
+      <div class="awards wrapper">
+        <div>
+          <img src="images/icon-0.png" alt="" />
+          <h3>Flexible payment options</h3>
+          <p>
+            You can choose a payment method. We accept all major credit cards
+            for online payment.
+          </p>
+        </div>
+        <div>
+          <img src="images/icon-1.png" alt="" />
+          <h3>Find a place you love</h3>
+          <p>Browse our homes, save your favorites, and book a tour today.</p>
+        </div>
+        <div>
+          <img src="images/icon-2.png" alt="" />
+          <h3>Hotels Worldwide</h3>
+          <p>
+            This includes hotels, hostels, apartments, <br />
+            villas, and even campgrounds.
+          </p>
+        </div>
+        <div>
+          <img src="images/icon-3.png" alt="" />
+          <h3>Reliable Reviews</h3>
+          <p>
+            We collect and publish our clients reviews, as well as reviews from
+            TripAdvisor.
+          </p>
+        </div>
+      </div>
+    </div>
+    <h3 class="pink-header">OUR BENEFITS</h3>
+    <h1 class="header-3">
+      Best experience possible brought to you by Veyvey team
+    </h1>
+    <div class="experience wrapper">
+      <div class="experience-top">
+        <div class="exp-top-left">
+          <div class="dots" id="dots-top"></div>
+          <div class="img-container">
+            <img src="images/image 63.png" alt="" />
+            <div class="pink-circle"></div>
+          </div>
+        </div>
+        <div class="exp-top-right">
+          <div class="clock">
+            <img src="images/clock.png" alt="" />
+          </div>
+          <h1>New listing in seconds</h1>
+          <p>
+            We offer self check-in and 24/7 guest support via our app. Whenever
+            possible, we resolve guest requests with contact-free service.
+          </p>
+          <div class="logos">
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="experience-bottom">
+        <div class="exp-bottom-left">
+          <div class="clock">
+            <img src="images/dol.png" alt="" />
+          </div>
+          <h1>New listing in seconds</h1>
+          <p>
+            We offer self check-in and 24/7 guest support via our app. Whenever
+            possible, we resolve guest requests with contact-free service.
+          </p>
+          <div class="logos">
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+          </div>
+        </div>
+        <div class="exp-bottom-right">
+          <div class="dots" id="dots-bottom"></div>
+          <div class="img-container">
+            <img src="images/image 65.png" alt="" />
+            <div class="white-circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="experience-mobile">
+      <div class="experience-top-mobile">
+          <div class="clock">
+            <img src="images/clock.png" alt="" />
+          </div>
+          <h1>New listing in seconds</h1>
+          <div class="exp-top-left-mobile">
+            <div class="dots" id="dots-top-mobile"></div>
+            <div class="img-container-mobile">
+              <img src="images/image 631.png" alt="" />
+              <div class="pink-circle"></div>
+            </div>
+          </div>
+          <p>
+            We offer self check-in and 24/7 guest support via our app. Whenever
+            possible, we resolve guest requests with contact-free service.
+          </p>
+          <div class="logos">
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+          </div>
+      </div>
+      <div class="experience-bottom-mobile">
+          <div class="clock">
+            <img src="images/dol.png" alt="" />
+          </div>
+          <h1>New listing in seconds</h1>
+          <div class="exp-bottom-right-mobile">
+            <div class="dots" id="dots-bottom-mobile"></div>
+            <div class="img-container-mobile">
+              <img src="images/image 651.png" alt="" />
+              <div class="white-circle"></div>
+            </div>
+          </div>
+          <p>
+            We offer self check-in and 24/7 guest support via our app. Whenever
+            possible, we resolve guest requests with contact-free service.
+          </p>
+          <div class="logos">
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+            <img src="images/log.png" alt="" />
+          </div>
+      </div>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-bg">
+        <div class="shadow2"></div>
+        <h3>TOP DESTINATIONS</h3>
+        <h1 class="bg-h">
+          Discover surprising adventures from mountains to cities
+        </h1>
+        <div class="arrows wrapper">
+          <button id="prev" onclick="prev()">
+            <img src="images/right-arrow.png" alt="" />
+          </button>
+          <button id="next0" onclick="next()">
+            <img src="images/right-arrow.png" alt="" />
+          </button>
+        </div>
+        <div
+          class="carousel"
+          id="carousel"
+          onmousemove="touch(event)"
+          onmouseenter="getPosX(event)"
+        >
+          <div class="carousel-item none"></div>
+          <div class="carousel-item none"></div>
+          <div class="carousel-item first-item">
+            <img src="images/BO RJ0Mi 4 1.png" alt="" />
+            <h1>Find perfect places in Borjomi</h1>
+            <p>
+              Its diverse architecture encompasses Eastern Orthodox churches,
+              ornate art nouveau buildings and Soviet structures.
+            </p>
+            <a href="#">
+              <p>See 425 Apartments</p>
+              <img src="images/next.png" alt="" />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <img src="images/image 62.png" alt="" />
+            <h1>Find perfect places in Borjomi</h1>
+            <p>
+              Its diverse architecture encompasses Eastern Orthodox churches,
+              ornate art nouveau buildings and Soviet structures.
+            </p>
+            <a href="#">
+              <p>See 425 Apartments</p>
+              <img src="images/next.png" alt="" />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <img src="images/kakhe ti.png" alt="" />
+            <h1>Find perfect places in Kakheti</h1>
+            <p>
+              Its diverse architecture encompasses Eastern Orthodox churches,
+              ornate art nouveau buildings and Soviet structures.
+            </p>
+            <a href="#">
+              <p>See 425 Apartments</p>
+              <img src="images/next.png" alt="" />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <img src="images/BO RJ0Mi 4 1.png" alt="" />
+            <h1>Find perfect places in Borjomi</h1>
+            <p>
+              Its diverse architecture encompasses Eastern Orthodox churches,
+              ornate art nouveau buildings and Soviet structures.
+            </p>
+            <a href="#">
+              <p>See 425 Apartments</p>
+              <img src="images/next.png" alt="" />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <img src="images/BO RJ0Mi 4 1.png" alt="" />
+            <h1>Find perfect places in Borjomi</h1>
+            <p>
+              Its diverse architecture encompasses Eastern Orthodox churches,
+              ornate art nouveau buildings and Soviet structures.
+            </p>
+            <a href="#">
+              <p>See 425 Apartments</p>
+              <img src="images/next.png" alt="" />
+            </a>
+          </div>
+        </div>
+
+        <div class="shadow1"></div>
+      </div>
+    </div>
+    <div class="customers">
+      <div class="customers-container wrapper">
+        <div class="heart">
+          <img src="images/Path.png" alt="" />
+        </div>
+        <div class="buttons">
+          <h1>10,000+ customers and companies <span>are</span> loving Veyvey.</h1>
+          <div>
+            <button id="prev-1" onclick="prev1()">
+              <img src="images/n.png" alt="" />
+            </button>
+            <button id="next-1" onclick="next1()">
+              <img src="images/n.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="customer-carousel">
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+        <div class="customer-item">
+          <div class="customer-name">
+            <div></div>
+            <h3>@roomshotel</h3>
+          </div>
+          <p>
+            We are always happy to recieve customers from Veyvey, because they
+            made this process easier than anyone else does.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="pink-header">ALL SERVICES</div>
+    <h1 class="header-4">Everywhere you want to go</h1>
+    <div class="everywhere wrapper">
+      <a href="" class="ever">
+        <img src="images/ho.png" alt="" />
+        <h3>Hotels</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/ap.png" alt="" />
+        <h3>Apartments</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/ex.png" alt="" />
+        <h3>Experiences</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/ca.png" alt="" />
+        <h3>Cars</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/re.png" alt="" />
+        <h3>Restaurants</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/tr.png" alt="" />
+        <h3>Trails</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/ev.png" alt="" />
+        <h3>Events</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+      <a href="" class="ever">
+        <img src="images/ra.png" alt="" />
+        <h3>Railways</h3>
+        <p>
+          Furnished and self-catering accomm- odations where guests rent the
+          entire place.
+        </p>
+        <span> View<span>&#x27F6;</span> </span>
+      </a>
+    </div>
+    <footer>
+      <div class="footer-container wrapper">
+        <div class="footer-logo">
+          <div>
+            <img src="images/logo.png" alt="" />
+            <img src="images/name.png" alt="" />
+          </div>
+          <h1>All the benefits are at your hand</h1>
+          <p>Register your profile and get additional permitions and etc.</p>
+          <a href="#"> Create your account </a>
+        </div>
+        <div class="links-container">
+          <div class="fast-links a-0">
+            <h3>Services</h3>
+            <div>
+              <a href="#">Homes</a>
+              <a href="#">Apartments</a>
+              <a href="#">Cottages</a>
+              <a href="#">Villas</a>
+              <a href="#">Tickets</a>
+              <a href="#">Car hire</a>
+              <a href="#">Local dining</a>
+              <a href="#">Tours</a>
+              <a href="#">Sightseeings</a>
+              <a href="#">Hiking</a>
+              <a href="#">Experiences</a>
+            </div>
+          </div>
+          <div class="fast-links a-1">
+            <h3>Additional</h3>
+            <div>
+              <a href="#">Reviews</a>
+              <a href="#">Blogs</a>
+              <a href="#">Ad placement</a>
+              <a href="#">FAQ</a>
+              <a href="#">Forum</a>
+              <a href="#">Covid-19</a>
+              <a href="#">Sustainability</a>
+              <a href="#">Static pages</a>
+            </div>
+          </div>
+          <div class="b-0">
+            <div class="fast-links a-2">
+              <h3>About</h3>
+              <div>
+                <a href="#">How VeyVey works</a>
+                <a href="#">Partner Help</a>
+                <a href="#">Careers</a>
+                <a href="#">Terms & Conditions</a>
+              </div>
+            </div>
+            <div class="fast-links a-3">
+              <h3>Social media</h3>
+              <div>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Youtube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rights wrapper">
+        <p>2020 VeyVey Inc. All Rights Reserved</p>
+        <div>
+          <span>
+            <a href="#">Privacy and policy</a>
+            <a href="#">Terms and conditions</a>
+          </span>
+          <span>
+            <img src="images/Lock.png" alt="" />
+            <p>Secure payment:</p>
+            <img src="images/visa.png" alt="" />
+            <img src="images/mastercard.png" alt="" />
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/pickmeup.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+  </body>
+</html>
